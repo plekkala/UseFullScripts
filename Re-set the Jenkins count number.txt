@@ -1,0 +1,8 @@
+Go to http://your-jenkins-server/script In script window enter:
+
+item = Jenkins.instance.getItemByFullName("your-job-name-here")
+//THIS WILL REMOVE ALL BUILD HISTORY
+item.builds.each() { build ->
+  build.delete()
+}
+item.updateNextBuildNumber(1)
